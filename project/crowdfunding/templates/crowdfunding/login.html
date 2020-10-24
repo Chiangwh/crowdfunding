@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Login </title>
+    <link rel="stylesheet" href="login.css">
+    <style>
+      body{
+      margin: 0;
+      padding: 0;
+      background: #0f4481;
+      }
+
+      .container{
+      width:400px;
+      padding: 40px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      background: #191919;
+      text-align: center;
+      border-radius: 5px;
+      box-shadow: 0 30px 30px;
+      }
+
+      .container h1{
+    color: white;
+    font-weight: 200;
+  
+  }
+  .container input[type="text"],.container input[type="password"]{
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #3498db;
+    padding: 14px 10px;
+    width: 200px;
+    outline: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 10px;
+    transition: 0.25s;
+  }
+  .container input[type="text"]:focus,.container input[type="password"]:focus{
+    width: 280px;
+    border-color: #545555;
+  }
+  .container input[type="submit"]{
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #34495e;
+    padding: 12px 25px;
+    outline: none;
+    color: beige;
+    border-radius: 10px;
+    transition: 0.25s;
+    font-size: 16px;
+    font-family: 'Libre Baskerville', serif;
+  }
+  .container input[type="submit"]:hover{
+    background: #5d6060;
+  }
+  .container small{
+      color:beige
+  }
+  .container a{
+      color:beige
+  }
+    
+</style>
+  </head>
+
+  <body>
+    <form class="container" action="" method="GET">
+      <h1>Welcome to profund!</h1>
+      <input type="text" name="" placeholder="Username">
+      <input type="password" name="" placeholder="Password">
+      <input type="submit" value="Login">
+      <small>
+          Not a member? <a href = "register.html">Register here</a>
+      </small>
+    </form>
+    
+  </body>
+</html>
