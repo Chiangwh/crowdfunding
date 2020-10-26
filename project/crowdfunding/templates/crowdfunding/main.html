@@ -1,0 +1,188 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Landing Page</title>
+<!-- Add font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins" rel="stylesheet">
+<!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+*{
+    margin:0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family:'Poppins',sans-serif;
+    
+}
+
+nav{
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height:10vh;
+    background-color:#023750;
+    
+}
+
+.logo{
+    color:beige;
+    text-transform:uppercase;
+    letter-spacing:3px;
+    font-size:30px;
+
+}
+
+.nav-links{
+    display:flex;
+    justify-content:space-around;
+    width:70%;
+}
+
+.nav-links li{
+    list-style:none;
+}
+
+.nav-links a{
+    color:#dce4f2;
+    text-decoration:none;
+    letter-spacing:1px;
+    font-weight: bold;
+    font-size:14px;
+    cursor: pointer;
+
+}
+
+.burger{
+    display:none;
+    cursor:pointer;
+}
+
+.burger div{
+    width:25px;
+    height:2px;
+    background-color:#dce4f2;
+    margin:5px;
+    
+
+}
+
+@media screen and (max-width: 1024px){
+    .nav-links{
+        display:flex;
+        justify-content: space-around;
+        width:60%;
+    }
+}
+
+@media screen and (max-width:768px){
+    body{
+        overflow-x:hidden;
+    }
+    .nav-links{
+        position:absolute;
+        right:0px;
+        height:90vh;
+        top:10vh;
+        background-color:#003366;
+        
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        width:40%;
+        transform:translateX(100%);
+        transition:transform 0.5s ease-in;
+    
+    }
+    
+    .burger{
+        display:block;
+    }
+}
+
+.nav-active{
+    transform:translateX(0%);
+}
+
+@keyframes navLinkFade{
+    from{
+        opacity:0;
+        transform:translateX(50px);
+    }
+    to{
+        opacity:1;
+        transform:translateX(0px);
+    }
+}
+
+#hello-msg{
+    color: #83abf0;
+    margin: 30px;
+    
+}
+
+</style>
+</head>
+
+<body>
+    <header>
+       
+
+
+        <nav>
+            <div class="logo">
+                    <h4>Profund</h4>
+                                 
+            </div>
+
+            <ul class ="nav-links">
+                
+            
+               
+
+                <li>
+                    <a class = "nav-link" href="#home">Home Page</a>
+                </li>
+                
+                <li>
+                    <a class = "nav-link" href="#fundedproject">Funded Project</a>
+                </li>
+
+                <li>
+                    <a class = "nav-link" href="#success story">Sucess Story</a>
+
+                </li>
+
+                <li>
+                    <span id="hello-msg">Hello, {{request.user}}</span>
+                    <span><a href= "{% url 'logout' %}">Logout</a></span>
+    
+                </li>
+            </ul>
+            
+            <div class = "burger">
+                <div class ="line1"></div>
+                <div class ="line2"></div>
+                <div class ="line3"></div>
+            </div>
+
+        
+        </nav>
+        
+    </header>
+    <hr>
+    {% block content %}
+
+
+
+
+
+    
+    {% endblock %}
+
+    <hr>
+    <h5>footer</h5>
+ 
+</body>
+</html>

@@ -73,16 +73,26 @@
   .container a{
       color:beige
   }
+
+  .container p{
+      color:#3498db
+  }
     
 </style>
   </head>
 
   <body>
-    <form class="container" action="" method="GET">
-      <h1>Welcome to profund!</h1>
-      <input type="text" name="" placeholder="Username">
-      <input type="password" name="" placeholder="Password">
+    <form class="container" action="" method="POST">
+      {% csrf_token %}
+      <h1>Welcome to Profund</h1>
+      <input type="text" name="username" placeholder="Username">
+      <input type="password" name="password" placeholder="Password">
       <input type="submit" value="Login">
+
+      {% for message in messages %}
+        <p id="messages">{{message}}</p>
+      {% endfor %}
+
       <small>
           Not a member? <a href = "register.html">Register here</a>
       </small>
