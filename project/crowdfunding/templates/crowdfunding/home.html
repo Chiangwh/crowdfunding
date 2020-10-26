@@ -1,7 +1,125 @@
 {% extends 'crowdfunding/main.html' %}
 
 {% block content%}
+<style>
+    * {
+        box-sizing: border-box;
+      }
+      
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      
+      /* Float four columns side by side */
+      .column {
+        float: left;
+        width:23%;
+        padding: 10px;
+      }
+      
+      /* Remove extra left and right margins, due to padding in columns */
+      .row {
+          margin: 10 px;
+          
+          }
+      
+      /* Clear floats after the columns */
+      .row:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+      .container {
+          flex-direction: row;
+          flex-wrap: wrap;
+          width: 20%;
+          float: left;
+      }
+      /* Style the counter cards */
+      .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+        padding: 16px;
+        text-align: center;
+        color: #ffffff;
+        background-color: #023750;
+        margin: 10px;
+        width: 20%;
+        flex-wrap: wrap;
+        flex-direction: column;
+      }
+      
+      /* Responsive columns - one column layout (vertical) on small screens */
+      @media screen and (max-width: 600px) {
+        .column {
+          width: 100%;
+          display: block;
+          margin-bottom: 20px;
+        }
+      }
 
-<h1>Homepage</h1>
+</style>
+<!-- <body onload="cardPopulate()"> -->
+<h1>Projects</h1>
+<!-- Slideshow --> 
+<div class="slideshow">
+
+</div>
+
+<!-- Cards -->
+<!-- <div class="row">
+    <div class="column"> -->
+        <div id="container">
+            
+        </div>
+    <!-- </div>
+  </div> -->
+  
+
+
+</div>
+</body>
+
+<script>
+
+let cards = [
+        {
+        title: "Hello Fund my Strip Club",
+        description: "My strip club for 10 women all with smelly pussies"
+        },
+        {
+        title: "Hello Fund my Vegan Club",
+        description: "My vegan club for 10 women all with smelly brocolli"
+        },
+        {
+        title: "Hello Fund my Fatty Bom Bom Club",
+        description: "10 women eat all my smelly brocolli"
+        }
+             ]
+let cardLength = cards.length;
+
+const container = document.getElementById('container');
+
+cards.forEach((data) => {
+  // Create card element
+  const card = document.createElement('div');
+
+  // Construct card content
+  const content = `
+    <div class="card" margin=20px>
+        <h2>${data.title}</h2>
+        <p>${data.description}</p>
+      </div>
+    </div>
+  </div>
+  `;
+  // Append newyly created card element to the container
+  container.innerHTML += content;
+
+})
+
+
+</script>
 
 {% endblock %}
+
+
