@@ -10,30 +10,29 @@
         font-family: Arial, Helvetica, sans-serif;
       }
       
-      /* Float four columns side by side */
-      .column {
-        float: left;
-        width:23%;
-        padding: 10px;
+      #hero {
+        margin: 10px;
       }
-      
-      /* Remove extra left and right margins, due to padding in columns */
-      .row {
-          margin: 10 px;
-          
-          }
-      
-      /* Clear floats after the columns */
-      .row:after {
-        content: "";
-        display: table;
-        clear: both;
+
+      #hero > img{
+        max-width: 100%;
+        height: auto;
       }
-      .container {
-          flex-direction: row;
-          flex-wrap: wrap;
-          width: 20%;
-          float: left;
+
+      #hero-title{
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white; 
+      }
+
+      #container {
+        display: flex;
+        flex-direction: row;
+        align-items: space-evenly;
+        flex-wrap: wrap;
       }
       /* Style the counter cards */
       .card {
@@ -43,14 +42,14 @@
         color: #ffffff;
         background-color: #023750;
         margin: 10px;
-        width: 20%;
-        flex-wrap: wrap;
-        flex-direction: column;
+        width: 23%;
+        height: 260px;
+        box-sizing: border-box;
       }
       
       /* Responsive columns - one column layout (vertical) on small screens */
       @media screen and (max-width: 600px) {
-        .column {
+        .card {
           width: 100%;
           display: block;
           margin-bottom: 20px;
@@ -58,21 +57,20 @@
       }
 
 </style>
-<!-- <body onload="cardPopulate()"> -->
-<h1>Projects</h1>
-<!-- Slideshow --> 
-<div class="slideshow">
-
+<body> 
+<!-- Hero --> 
+<div id="hero">
+  <div id = "hero-title">
+  </div>
 </div>
 
 <!-- Cards -->
-<!-- <div class="row">
-    <div class="column"> -->
-        <div id="container">
-            
-        </div>
-    <!-- </div>
-  </div> -->
+
+<div id="container">
+
+  
+</div>
+
   
 
 
@@ -80,6 +78,24 @@
 </body>
 
 <script>
+
+const hero = {
+  id: "hero-title",
+  title:"Wen Hsin pay me $2000",
+  description:"cb kia suck a dick",
+  image:"https://www.newstatesman.com/sites/default/files/styles/cropped_article_image/public/blogs_2020/04/gettyimages-1152948850.jpg?itok=fLlVqYFm&c=7befd3d9b1d3721e2544ba5f0333e021"
+  }
+
+window.onload =  populateHero = ()=> {
+  console.log("letsgo")
+  var insert =  document.getElementById('hero') 
+  insert.innerHTML="<img src=" + hero.image + "> <h2 id="+"'" + hero.id + "'>"+hero.title+ "</h2>"
+
+}
+
+
+
+
 
 let cards = [
         {
@@ -93,6 +109,10 @@ let cards = [
         {
         title: "Hello Fund my Fatty Bom Bom Club",
         description: "10 women eat all my smelly brocolli"
+        },
+        {
+        title: "Hello Fund my engineering Club",
+        description: "10 engineers eat all my women"
         },
         {
         title: "Hello Fund my engineering Club",
