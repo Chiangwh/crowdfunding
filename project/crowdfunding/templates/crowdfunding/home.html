@@ -10,30 +10,11 @@
         font-family: Arial, Helvetica, sans-serif;
       }
       
-      /* Float four columns side by side */
-      .column {
-        float: left;
-        width:23%;
-        padding: 10px;
-      }
-      
-      /* Remove extra left and right margins, due to padding in columns */
-      .row {
-          margin: 10 px;
-          
-          }
-      
-      /* Clear floats after the columns */
-      .row:after {
-        content: "";
-        display: table;
-        clear: both;
-      }
-      .container {
-          flex-direction: row;
-          flex-wrap: wrap;
-          width: 20%;
-          float: left;
+      #container {
+        display: flex;
+        flex-direction: row;
+        align-items: space-evenly;
+        flex-wrap: wrap;
       }
       /* Style the counter cards */
       .card {
@@ -43,14 +24,14 @@
         color: #ffffff;
         background-color: #023750;
         margin: 10px;
-        width: 20%;
-        flex-wrap: wrap;
-        flex-direction: column;
+        width: 23%;
+        height: 160px;
+        box-sizing: border-box;
       }
       
       /* Responsive columns - one column layout (vertical) on small screens */
       @media screen and (max-width: 600px) {
-        .column {
+        .card {
           width: 100%;
           display: block;
           margin-bottom: 20px;
@@ -60,19 +41,18 @@
 </style>
 <!-- <body onload="cardPopulate()"> -->
 <h1>Projects</h1>
-<!-- Slideshow --> 
-<div class="slideshow">
 
+<!-- Hero --> 
+<div class="hero">
 </div>
 
 <!-- Cards -->
-<!-- <div class="row">
-    <div class="column"> -->
-        <div id="container">
-            
-        </div>
-    <!-- </div>
-  </div> -->
+
+<div id="container">
+
+  
+</div>
+
   
 
 
@@ -80,6 +60,18 @@
 </body>
 
 <script>
+
+let hero = {
+  title:"Wen Hsin pay me $2000",
+  description:"cb kia suck a dick",
+  image:"https://www.newstatesman.com/sites/default/files/styles/cropped_article_image/public/blogs_2020/04/gettyimages-1152948850.jpg?itok=fLlVqYFm&c=7befd3d9b1d3721e2544ba5f0333e021"
+  }
+
+let populateHero = ()=> {
+  var hero =  getElementById("hero")
+  
+}
+
 
 let cards = [
         {
@@ -93,6 +85,10 @@ let cards = [
         {
         title: "Hello Fund my Fatty Bom Bom Club",
         description: "10 women eat all my smelly brocolli"
+        },
+        {
+        title: "Hello Fund my engineering Club",
+        description: "10 engineers eat all my women"
         },
         {
         title: "Hello Fund my engineering Club",
