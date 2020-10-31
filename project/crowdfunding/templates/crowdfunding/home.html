@@ -1,5 +1,6 @@
-{% extends 'crowdfunding/main.html' %}
 
+{% extends 'crowdfunding/main.html' %}
+{% load static %}
 {% block content%}
 <style>
     * {
@@ -17,15 +18,16 @@
       #hero > img{
         max-width: 100%;
         height: auto;
+        align-self: center;
       }
 
       #hero-title{
         text-align: center;
         position: absolute;
-        top: 50%;
+        top: 20%;
         left: 50%;
         transform: translate(-50%, -50%);
-        color: white; 
+        color: blueviolet; 
       }
 
       #container {
@@ -64,6 +66,8 @@
   </div>
 </div>
 
+
+
 <!-- Cards -->
 
 <div id="container">
@@ -81,10 +85,11 @@
 
 const hero = {
   id: "hero-title",
-  title:"Wen Hsin pay me $2000",
-  description:"cb kia suck a dick",
-  image:"https://www.newstatesman.com/sites/default/files/styles/cropped_article_image/public/blogs_2020/04/gettyimages-1152948850.jpg?itok=fLlVqYFm&c=7befd3d9b1d3721e2544ba5f0333e021"
-  }
+  title:"wtftfwtf ",
+  description:"Description",
+  image: "{% static 'crowdfunding/images/logo.png' %}",
+  
+}
 
 window.onload =  populateHero = ()=> {
   console.log("letsgo")
@@ -99,24 +104,24 @@ window.onload =  populateHero = ()=> {
 
 let cards = [
         {
-        title: "Hello Fund my Strip Club",
-        description: "My strip club for 10 women all with smelly pussies"
+        title: "Hello Fund Club",
+        description: "kjjkhkjhkjhkjhkiuhiuh"
         },
         {
-        title: "Hello Fund my Vegan Club",
-        description: "My vegan club for 10 women all with smelly brocolli"
+          title: "Hello Fund Club",
+        description: "kjjkhkjhkjhkjhkiuhiuh"
         },
         {
-        title: "Hello Fund my Fatty Bom Bom Club",
-        description: "10 women eat all my smelly brocolli"
+          title: "Hello Fund Club",
+        description: "kjjkhkjhkjhkjhkiuhiuh"
         },
         {
-        title: "Hello Fund my engineering Club",
-        description: "10 engineers eat all my women"
+          title: "Hello Fund Club",
+        description: "kjjkhkjhkjhkjhkiuhiuh"
         },
         {
-        title: "Hello Fund my engineering Club",
-        description: "10 engineers eat all my women"
+          title: "Hello Fund Club",
+        description: "kjjkhkjhkjhkjhkiuhiuh"
         }
              ]
 let cardLength = cards.length;

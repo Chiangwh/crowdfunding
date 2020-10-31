@@ -1,0 +1,16 @@
+
+
+{% extends 'crowdfunding/main.html' %}
+{% load static %}
+{% block content %}
+<form action =" " method = "POST">
+    {% csrf_token %}
+    {{projectform}}
+
+    <input type ="submit" name ="submit">
+</form>
+
+
+{% endblock %}
+
+

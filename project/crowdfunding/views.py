@@ -1,14 +1,16 @@
 from django.shortcuts import render,redirect 
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.forms import inlineformset_factory
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User,auth
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib import messages 
 from django.contrib.auth.decorators import login_required
+from django.db import connection
+from .models import Project
 
 # Create your views here.
-from .forms import CreateUserForm
+from .forms import CreateUserForm, CreateProjectForm
 
 @login_required(login_url='loginpage') #send user back to login page if not login
 def home(request): #Renders 'crowdfunding/home.html'template 
@@ -49,3 +51,21 @@ def register(request): #Renders 'crowdfunding/register.html'template
 
     context = {'form':form}
     return render(request,'crowdfunding/register.html',context)
+
+
+
+def all_project_query(request):
+
+        project = """ SELECT p_name, description FROM project;"""
+        c = connection.cursor()
+        c.execute(project)
+        resutls = c.fetchall()
+
+        return JsonResponse (resutls, safe = False)
+
+def createproject(request):
+        projectform = CreateProjectForm()
+        context ={'form' : projectform}
+        return render (request, 'crowdfunding/createproject.html', context)
+
+
