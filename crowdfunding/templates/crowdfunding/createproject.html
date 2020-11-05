@@ -1,0 +1,325 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+<style>
+*{
+    margin:0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family:'Poppins',sans-serif;
+    
+}
+
+nav{
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height:10vh;
+    background-color:#003366;
+    
+}
+
+.logo{
+    color:beige;
+    text-transform:uppercase;
+    letter-spacing:3px;
+    font-size:30px;
+
+}
+
+.nav-links{
+    display:flex;
+    justify-content:space-around;
+    width:70%;
+}
+
+.nav-links li{
+    list-style:none;
+}
+
+.nav-links a{
+    color:#dce4f2;
+    text-decoration:none;
+    letter-spacing:1px;
+    font-weight: bold;
+    font-size:14px;
+    cursor: pointer;
+
+}
+
+.burger{
+    display:none;
+    cursor:pointer;
+}
+
+.burger div{
+    width:25px;
+    height:2px;
+    background-color:#dce4f2;
+    margin:5px;
+    
+
+}
+
+@media screen and (max-width: 1024px){
+    .nav-links{
+        display:flex;
+        justify-content: space-around;
+        width:60%;
+    }
+}
+
+@media screen and (max-width:768px){
+    body{
+        overflow-x:hidden;
+    }
+    .nav-links{
+        position:absolute;
+        right:0px;
+        height:90vh;
+        top:10vh;
+        background-color:#003366;
+        
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        width:40%;
+        transform:translateX(100%);
+        transition:transform 0.5s ease-in;
+    
+    }
+    
+    .burger{
+        display:block;
+    }
+}
+
+.nav-active{
+    transform:translateX(0%);
+}
+
+@keyframes navLinkFade{
+    from{
+        opacity:0;
+        transform:translateX(50px);
+    }
+    to{
+        opacity:1;
+        transform:translateX(0px);
+    }
+}
+
+#hello-msg{
+    color: #83abf0;
+    margin: 40px;
+}
+
+#hello-admin {
+   color: #83abf0;
+    margin: 40px;
+    text-decoration: underline;
+}
+
+.create-form {
+  text-align:center;
+  margin-top: 50px; 
+  
+}
+
+.form-group{
+  margin-bottom:20px;
+}
+
+.form-check{
+  margin-top:5px;
+  margin-bottom:20px;
+  padding:20 px;
+}
+
+input[type="text" ] {
+  padding: 10px;
+  margin-top:5px;
+  text-align:center;
+  width:500px;
+}
+
+input[type="text2" ] {
+  padding: 10px;
+  margin-top:5px;
+  text-align:center;
+  width:500px;
+  height:100px;
+}
+
+input[type="goal"]{
+  margin-top:5px;
+  padding: 10px;
+  text-align:center;
+  width:500px;
+}
+
+input[type="date"]{
+  margin-top:5px;
+  padding: 10px;
+  text-align:center;
+  width:500px;
+}
+.form-control {
+  padding:10px;
+  text-align:center;
+  width:500px;
+
+}
+
+.btn{
+  background-color: #003366; /* Green */
+  border: none;
+  color: white;
+  padding: 12px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-bottom: 50px;
+  border-radius: 4px;
+}
+
+
+
+
+</style>
+
+<html>
+
+<body>
+  
+  <header>
+     
+
+
+      <nav>
+          <div class="logo">
+                      <h4>Profund</h4>
+              
+                               
+          </div>
+
+          <ul class ="nav-links">
+              
+          
+             
+
+              <li>
+                  <a class = "nav-link" href="#">Home Page</a>
+              </li>
+              
+              <li>
+                  <a class = "nav-link" href="popular.html">Popular</a>
+              </li>
+
+              <li>
+                  <a class = "nav-link" href="successsotry.html">Sucess Story</a>
+
+              </li>
+
+              <li>
+                  {% if user.is_superuser %}
+                  <span id="hello-admin"><a href = "crowdfunding/admin">Hello, {{request.user}}</a></span>
+                  {% else %}
+                  <span id="hello-msg">Hello, {{request.user}}</span>
+                  {% endif %}
+
+                  <span><a href= "{% url 'logout' %}">Logout</a></span>
+  
+              </li>
+          </ul>
+          
+          <div class = "burger">
+              <div class ="line1"></div>
+              <div class ="line2"></div>
+              <div class ="line3"></div>
+          </div>
+
+      
+      </nav>
+      
+  </header>
+
+ <!--start of form -->
+
+      <form class="create-form" method ="POST" >
+          {% csrf_token %}
+          
+
+              <div class="form-group">
+
+                <label for="projectname">Project Name</label>
+                <br><input type="text" class="form-control" name="projectname" autocomplete="off" placeholder="Enter a name"></br>
+          
+              </div>
+
+              <div class="form-group">
+
+                <label for="description">Project Description</label>
+                <br><input type="text2" class="form-control" name="description" placeholder="Describe your project" autocomplete="off"></br>
+
+              </div>
+
+              <div class="form-group">
+                     <label for="location">Location</label>
+                     <br>  <select class="form-control" name="location">
+                        <option>Singapore</option>
+                        <option>Taiwan</option>
+                        <option>Malaysia</option>
+                        <option>China</option>
+                        <option>Thailand</option>
+                        <option>Others</option>
+                      </select></br>
+              </div>
+
+              <div class="form-group">
+                      <label for="cateogry">Category</label>
+                      <br><select class="form-control" name="category">
+                      <option>sustainability</option>
+                      <option>games</option>
+                      <option>sports</option>
+                      <option>music</option>
+                      <option>technology</option>
+                      <option>Others</option>
+                      </select></br>
+              </div>
+
+              <div class="form-group">
+                  <label for="goal">Project Goal</label>
+                  <br><input type="goal" name="goal" autocomplete="off" placeholder="Enter an amount (up to 2 decimal places)"/></br>
+                </div>
+
+
+              <div class="form-group">
+                      <label for="startdate">Start Date</label>
+                      <br><input type="date" name="startdate"/></br>
+              </div>
+
+
+              
+              <div class="form-group">
+                      <label for="enddate">End Date</label>
+                      <br><input type="date" name="enddate"/></br>
+              </div>
+              
+
+
+
+              <div class="form-check">
+
+                <input type="checkbox" class="form-check-input" name="check">
+                <label class="form-check-label" for="exampleCheck1">I have read the terms and condition</label>
+
+              </div>
+
+              <button type="submit" class="btn">Submit</button>
+
+</form>
+      
+</body>
+
+</html>

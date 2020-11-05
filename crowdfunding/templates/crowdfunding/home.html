@@ -1,0 +1,200 @@
+
+{% extends 'crowdfunding/main.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+.tourpackage{
+
+    width:60%;
+    margin:auto;
+    margin-top:50px;
+    padding-top:10px;
+    padding-bottom:20px;
+    margin-bottom: 20px;
+    min-height:50vh;
+    align-items: center;
+    border-style:solid;
+    border-width:1px;
+    border-radius: 20px;
+    box-shadow: 8px 8px 8px 8px rgba(0.1,0.1,0.1,0.1);
+    text-align: center;
+    
+}
+
+
+
+.intro-text h4{
+    text-decoration:underline;
+    font-size: 16px;
+    font-weight:500;
+    margin-top:10px;
+}
+
+.intro-text p{
+    margin-left:80px;
+    margin-right:80px;
+    margin-bottom: 5px;
+    font-size:16px;
+    color:#0a63b6;
+    line-height: 0.6cm;
+    text-align: center;
+    
+    
+}
+
+
+table{
+    border-collapse:collapse;
+    margin:auto;
+    margin-bottom: 20px;
+    height:100px;
+    text-align:center;
+    width: 500px;
+    
+}
+
+
+
+table, th, td {
+    border: 2px solid rgb(10, 10, 10);
+    text-align:center;
+    font-size: 12px;
+  
+}
+
+th{
+    background-color:rgb(14, 94, 168);
+    color:#fcfcfc;
+    font-weight:bold;
+    text-align: center;
+    font-size: 12px;
+}
+
+
+
+.cta {
+    margin:auto;
+    width:90%;
+    display: flex;  
+    justify-content: center;  
+    align-items: center;
+    padding-bottom:20px;
+       
+}
+
+.cta-book{
+
+    border:2px solid #003366;
+    border-radius:8px;
+    background: #ffffff;
+    padding:10px 20px;
+    color:#003366;
+    cursor:pointer;
+    font-size:12px; 
+    text-decoration: none;
+    
+    
+}
+
+.cta-book:hover {
+    background-color:#003366;
+    color:#e9ebf0;
+    
+
+}
+.title{
+    margin:auto;
+
+}
+
+.title h3 { 
+    font-size: 24px;
+    padding-top: 50px;
+    padding-left: 150px;
+    text-decoration:underline;
+    color:#2c6094 ;
+    
+}
+
+
+
+
+
+</style>
+<body> 
+    <div class = "title">
+        <h3> All Projects</h3>
+    </div>
+
+    {% for i in records %}
+    <section class="tourpackage">
+                
+        <div class ="country">
+            
+            <div class="intro-text">
+
+                <h4>Project Title</h4>
+
+                <br><p>{{ i.1}} </p></br>
+            
+
+            
+
+                <h4>Project Description </h4>
+                 <br><p>{{ i.2}}</p> </br>
+            </div>
+                
+            </div>
+         <div class = "detailtable">
+            <table>
+                <tr>
+                    <th>Category</th>
+                    <td>{{ i.4}}</td>
+                </tr>
+                
+                <tr>
+                    <th>Location</th>
+                    <td>{{ i.3 }}</td>
+                
+                </tr>
+                    
+
+                <tr>
+                    <th>Start Date</th>
+                <td>
+                      {{i.5}}
+                </td>
+
+                <tr>
+                        <th>End Date</th>
+                    <td>
+                          {{i.6}}
+                    </td>
+
+                </tr>
+            </table>
+        </div>   
+                        
+            
+            <div class = "cta">
+                    <a href="{%url 'detail' i.0 %}"  class = "cta-book">Fund it!</a>
+                
+          
+            </div> 
+        
+
+        </div>
+  
+    </section>
+    {% endfor %}
+   
+
+
+
+</body>
+
+
+{% endblock %}
+
+
