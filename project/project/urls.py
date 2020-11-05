@@ -18,7 +18,6 @@ from django.urls import path, re_path,include
 from django.views.debug import default_urlconf 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('',default_urlconf),
-    path('crowdfunding/',include('crowdfunding.urls')),
+
+    path('',include('crowdfunding.urls')),
 ]
