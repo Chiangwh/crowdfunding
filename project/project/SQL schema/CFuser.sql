@@ -1,0 +1,1 @@
+INSERT INTO users(u_id,first_name,last_name,username,u_password,user_email,u_total_amount,projects_supported,role) VALUES  ("1","chiang","wenhsin","chiang","teeheelol","chiangwenhsin@gmail.com","0","0","admin")
