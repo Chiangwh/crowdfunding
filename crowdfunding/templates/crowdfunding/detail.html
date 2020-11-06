@@ -216,6 +216,19 @@ input[type="submit"] {
     font-size:15px;
 }
 
+.success{
+  margin: 0px 0;
+  padding: 15px;
+  border-radius: 3px 3px 3px 3px;
+  color: #270;
+  background-color: #DFF2BF;
+}
+
+.success strong{
+    margin-left:30px;
+}
+
+
 
 
 </style>
@@ -275,13 +288,24 @@ input[type="submit"] {
       </nav>
       
   </header>
+  {% for message in messages %}
 
+     <div class="success">
 
-{% for i in record %}
+        <strong>Success!</strong> {{message}}
 
-        
+      </div>
+      {% endfor %}
+    
+
        
-        
+       
+     
+    
+
+
+    {% for i in record %}
+
     <section class="tourpackage">
                 
         <div class ="country">
@@ -324,7 +348,7 @@ input[type="submit"] {
 
                     <div class="form-group">
                     <div class="input-group">
-                        <li>{{ message }}</li>
+                        
                         <input type="text" class="form-control" id="amount" name="amount" placeholder="Minimum $1" autocomplete="off">
                     </div>
                         <input type ="hidden" name= "projectid" value = "{{ record.0.0 }}">

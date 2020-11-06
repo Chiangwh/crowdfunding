@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect 
-from django.http import HttpResponse, JsonResponse
+from django.http import HttpResponse, JsonResponse,HttpResponseRedirect
 from django.forms import inlineformset_factory
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User,auth
@@ -180,6 +180,7 @@ def detail(request,project):
                 #newfund.p_id = project
                 #newfund.u_id = userid
                 #newfund.amount = fund
+                success = True
                 messages.success(request, 'Thank you for supporting!')
 
 
@@ -216,7 +217,7 @@ def detail(request,project):
                 c = connection.cursor()
                 c.execute(query)
 
-                return redirect('home')
+                return HttpResponseRedirect(request.path_info)
 
 
         
