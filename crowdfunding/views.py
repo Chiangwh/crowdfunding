@@ -151,10 +151,7 @@ def create(request):
                 c = connection.cursor()
                 c.execute(query)
 
-                return redirect('home')
-
-
-                
+                return redirect('home')       
                 
         return render(request, "crowdfunding/createproject.html")
 

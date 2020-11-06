@@ -3,37 +3,43 @@
 {% block content %}
 <style>
 
-    .tourpackage{
+.tourpackage{
 
-        width:80%;
-        margin:auto;
-        margin-top:50px;
-        margin-bottom:50px;
-        padding-top:10px;
-        padding-bottom:20px;
-        min-height:50vh;
-        align-items: center;
-        box-shadow: 4px 4px 4px 4px rgba(0.1,0.1,0.1,0.1);
-        text-align: center;
-        
-    }
+width:60%;
+margin:auto;
+margin-top:50px;
+padding-top:10px;
+padding-bottom:20px;
+margin-bottom: 20px;
+min-height:50vh;
+align-items: center;
+border-style:solid;
+border-width:1px;
+border-radius: 20px;
+box-shadow: 8px 8px 8px 8px rgba(0.1,0.1,0.1,0.1);
+text-align: center;
+
+}
 
 
-    .intro-text h4{
-        font-size: 20px;
-        font-weight:500;
-        margin-top:10px;
-    }
 
-    .intro-text p{
-        margin-bottom: 5px;
-        font-size:18px;
-        color:#0a63b6;
-        line-height: 0.6cm;
-        text-align: center;
-        
-        
-    }
+.intro-text h4{
+text-decoration:underline;
+font-size: 16px;
+font-weight:500;
+margin-top:5px;
+}
+
+.intro-text p{
+margin-left:80px;
+margin-right:80px;
+font-size:16px;
+color:#0a63b6;
+line-height: 0.6cm;
+text-align: center;
+
+
+}
 
 
     table{
@@ -52,6 +58,7 @@
         border: 2px solid rgb(10, 10, 10);
         text-align:center;
         font-size: 12px;
+        margin-bottom:50px;
     
     }
 
@@ -124,6 +131,19 @@
     color:#2c6094 ;
     
 }
+.goal {
+    margin-top:100px;
+    margin:auto;
+    width:500px;
+    height:30px;
+    background-color:rgb(148, 20, 20);
+    color:white;
+    
+}
+.goal h4{
+    margin:auto;
+    text-align:center;
+}
 
 </style>
 
@@ -171,6 +191,10 @@
 
                 </tr>
             </table>
+            <div class="goal">
+            <h4>Reached the goal of {{ i.7 }}</h4>
+        </div>
+    
         </div>   
            
            

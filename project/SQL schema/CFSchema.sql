@@ -40,7 +40,7 @@ CREATE TABLE project (
 	username Varchar(128) REFERENCES auth_user(username),
 	start_date DATE NOT NULL,
 	end_date DATE NOT NULL,
-	goal NUMERIC NOT NULL,
+	goal NUMERIC (18,2) NOT NULL,
 	status VARCHAR (50) DEFAULT 'started'
 );
 
@@ -48,7 +48,7 @@ CREATE TABLE project (
 
 CREATE TABLE fund (
     p_id SERIAL REFERENCES project(id),
-    u_id Varchar(128) REFERENCES auth_user(id),
+    u_id Integer(128) REFERENCES auth_user(id),
     created_at TIMESTAMP DEFAULT current_timestamp,
     amount NUMERIC (18,2) NOT NULL,
 		PRIMARY KEY(p_id,u_id,created_at)
